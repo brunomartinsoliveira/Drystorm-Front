@@ -19,7 +19,7 @@
     </div>
 
     <div class="contact__form-wrapper">
-      <!-- ✅ Feedback de sucesso -->
+      <!-- Feedback de sucesso -->
       @if (success()) {
         <div class="contact__success" role="alert">
           <span>✅</span>
@@ -29,7 +29,7 @@
           </div>
         </div>
       } @else {
-        <!-- ✅ Reactive Form — [formGroup] binding -->
+        <!-- Reactive Form — [formGroup] binding -->
         <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="contact__form">
 
           <div class="form-group" [class.error]="isInvalid('name')">

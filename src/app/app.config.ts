@@ -4,7 +4,7 @@ import { provideAnimations }            from '@angular/platform-browser/animatio
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { routes }                       from './app.routes';
 
-// ✅ Configuração moderna sem NgModule
+// Configuração moderna sem NgModule
 export const appConfig: ApplicationConfig = {
   providers: [
     // Roteamento com PreloadAllModules — módulos lazy carregam em background

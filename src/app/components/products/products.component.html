@@ -3,7 +3,7 @@
     <h2 class="products__title">Catálogo</h2>
     <p class="products__subtitle">Performance e estilo em cada peça</p>
 
-    <!-- ✅ Filtro reativo com signals -->
+    <!-- Filtro reativo com signals -->
     <div class="products__filters" role="group" aria-label="Filtro por categoria">
       <button
         class="filter-btn"
@@ -28,14 +28,14 @@
     </div>
   </div>
 
-  <!-- ✅ @for com trackBy — renderização otimizada -->
+  <!-- @for com trackBy — renderização otimizada -->
   @for (group of filteredGroups(); track trackByGroup($index, group)) {
     <div class="products__group" [@fadeInUp]>
       <h3 class="products__group-title">
         {{ group.icon }} {{ group.title }}
       </h3>
 
-      <!-- ✅ fadeInStagger anima cards em cascata -->
+      <!-- fadeInStagger anima cards em cascata -->
       <div class="products__grid" [@fadeInStagger]="group.products.length">
         @for (product of group.products; track trackByProduct($index, product)) {
           <app-product-card [product]="product" />

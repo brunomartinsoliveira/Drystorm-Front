@@ -24,6 +24,11 @@ npm run build:gh
 
 ## ⚡ Otimizações Aplicadas
 
+<img width="1919" height="1029" alt="drystormfront1" src="https://github.com/user-attachments/assets/f49a7467-f6f8-4517-bc2a-46b4363f6403" />
+<img width="1919" height="1033" alt="drystormfront2" src="https://github.com/user-attachments/assets/e050f502-4bdd-4b69-9a6b-425f47eaa0db" />
+<img width="1919" height="1027" alt="drystormfront3" src="https://github.com/user-attachments/assets/9a823f9c-fabe-4c61-ac6e-2353b6f8a178" />
+<img width="1919" height="1030" alt="drystormfront4" src="https://github.com/user-attachments/assets/ad042de1-4fbf-414f-b4bc-c74bea3104b0" />
+
 ### 1. Standalone Components (sem NgModule)
 Todos os componentes usam `standalone: true`, eliminando boilerplate de módulos e melhorando tree-shaking.
 
@@ -43,65 +48,6 @@ filter$ = this._filter$.asObservable();
 private _filter = signal<string>('all');
 readonly filter = this._filter.asReadonly();
 readonly filtered = computed(() => /* recalcula só quando muda */);
-```
-
-### 4. @for com trackBy — sem re-render desnecessário
-```html
-<!-- ❌ Antes: *ngFor sem trackBy → recria todos os elementos -->
-<div *ngFor="let p of products">
-
-<!-- ✅ Depois: @for com track → só atualiza o que mudou -->
-@for (p of products; track p.id) {
-```
-
-### 5. Lazy Loading de Imagens
-```html
-<img [src]="product.image" loading="lazy" />
-<!-- Browser carrega só quando a imagem entra no viewport -->
-```
-
-### 6. Pipe Customizado Pure
-```ts
-@Pipe({ name: 'currencyBr', pure: true })
-// → Só executa transform() quando o valor muda, não a cada CD cycle
-```
-
-### 7. inject() moderno
-```ts
-// ❌ Antes (Angular < 14)
-constructor(private service: ProductService) {}
-
-// ✅ Depois
-readonly service = inject(ProductService);
-```
-
-### 8. Animações declarativas
-- `fadeInStagger` — cards entram em cascata (80ms delay)
-- `cardHover` — state machine `default ↔ hovered` com GPU
-- `slideDown` — mobile menu com `:enter/:leave`
-- `will-change: transform` — dica ao browser para GPU compositing
-
-### 9. Reactive Forms com validação real
-- `Validators.required`, `email`, `minLength`
-- Feedback de erro por campo com mensagens personalizadas
-- Estado `loading` e `success` via Signals
-- Spinner de carregamento no botão
-
-### 10. SEO e Meta Tags
-```html
-<meta name="description" .../>
-<meta property="og:title" .../>
-<meta name="theme-color" content="#0a0a0a"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-```
-
-### 11. Build de Produção Otimizado (`angular.json`)
-```json
-"optimization": {
-  "scripts": true,
-  "styles": { "minify": true, "inlineCritical": true },
-  "fonts": { "inline": true }
-}
 ```
 
 ---

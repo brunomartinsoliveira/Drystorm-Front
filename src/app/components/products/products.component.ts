@@ -17,10 +17,10 @@ import { fadeInStagger, fadeInUp } from '../../animations/animations';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsComponent {
-  // ✅ inject() — DI moderna sem construtor
+  // inject() — DI moderna sem construtor
   readonly productService = inject(ProductService);
 
-  // ✅ Exposição direta dos signals do service
+  // Exposição direta dos signals do service
   readonly filteredGroups  = this.productService.filteredGroups;
   readonly activeFilter    = this.productService.activeFilter;
 
@@ -28,7 +28,7 @@ export class ProductsComponent {
     this.productService.setFilter(filter);
   }
 
-  // ✅ trackBy function — evita re-render desnecessário de cards
+  // trackBy function — evita re-render desnecessário de cards
   trackByProduct(_: number, product: { id: number }): number {
     return product.id;
   }

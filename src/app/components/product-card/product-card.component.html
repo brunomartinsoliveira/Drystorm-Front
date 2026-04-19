@@ -10,7 +10,7 @@
   }
 
   <div class="product-card__img-wrapper" [class.loaded]="imageLoaded()">
-    <!-- ✅ loading="lazy" — imagens abaixo do fold carregam sob demanda -->
+    <!-- loading="lazy" — imagens abaixo do fold carregam sob demanda -->
     <img
       [src]="product.image"
       [alt]="product.name"
@@ -23,7 +23,7 @@
 
   <div class="product-card__info">
     <h3 class="product-card__name">{{ product.name }}</h3>
-    <!-- ✅ Pipe customizado para R$ brasileiro -->
+    <!-- Pipe customizado para R$ brasileiro -->
     <p class="product-card__price">{{ product.price | currencyBr }}</p>
     <button class="product-card__btn" type="button">
       Comprar agora

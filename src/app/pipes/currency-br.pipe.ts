@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-// ✅ Pipe customizado para formato de moeda BR — reutilizável e otimizado
+// Pipe customizado para formato de moeda BR — reutilizável e otimizado
 @Pipe({
   name: 'currencyBr',
   standalone: true,
