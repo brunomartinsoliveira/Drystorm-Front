@@ -1,0 +1,73 @@
+.footer {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.4);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__logo {
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    strong { color: var(--accent); }
+  }
+
+  &__brand p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+
+  &__nav, &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    h4 {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #555;
+      margin: 0 0 0.5rem;
+    }
+
+    a, p {
+      font-size: 0.88rem;
+      color: #888;
+      text-decoration: none;
+      margin: 0;
+      transition: color 0.2s;
+    }
+    a:hover { color: var(--accent); }
+  }
+
+  &__bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    p {
+      font-size: 0.78rem;
+      color: #555;
+      margin: 0;
+    }
+  }
+}

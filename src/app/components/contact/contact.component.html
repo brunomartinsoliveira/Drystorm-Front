@@ -1,0 +1,85 @@
+<section class="contact" id="contato" [@fadeInUp]>
+  <div class="contact__inner">
+    <div class="contact__info">
+      <h2 class="contact__title">Fale com a gente</h2>
+      <p class="contact__desc">
+        Dúvidas sobre pedidos, tamanhos ou parcerias?
+        Nossa equipe responde em até 24h.
+      </p>
+      <ul class="contact__list">
+        <li>✉️ contato&#64;drystorm.com.br</li>
+        <li>📍 João Pessoa, PB — Brasil</li>
+        <li>⏰ Seg–Sex, 9h–18h</li>
+      </ul>
+      <div class="contact__socials">
+        <a href="#" aria-label="Instagram" class="social-link">IG</a>
+        <a href="#" aria-label="WhatsApp"  class="social-link">WA</a>
+        <a href="#" aria-label="TikTok"    class="social-link">TK</a>
+      </div>
+    </div>
+
+    <div class="contact__form-wrapper">
+      <!-- ✅ Feedback de sucesso -->
+      @if (success()) {
+        <div class="contact__success" role="alert">
+          <span>✅</span>
+          <div>
+            <strong>Mensagem enviada!</strong>
+            <p>Em breve nossa equipe entrará em contato.</p>
+          </div>
+        </div>
+      } @else {
+        <!-- ✅ Reactive Form — [formGroup] binding -->
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="contact__form">
+
+          <div class="form-group" [class.error]="isInvalid('name')">
+            <label for="name">Nome completo</label>
+            <input id="name" type="text" formControlName="name" placeholder="Seu nome" />
+            @if (isInvalid('name')) {
+              <span class="form-error">{{ errorFor('name') }}</span>
+            }
+          </div>
+
+          <div class="form-group" [class.error]="isInvalid('email')">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" formControlName="email" placeholder="seu@email.com" />
+            @if (isInvalid('email')) {
+              <span class="form-error">{{ errorFor('email') }}</span>
+            }
+          </div>
+
+          <div class="form-group" [class.error]="isInvalid('subject')">
+            <label for="subject">Assunto</label>
+            <select id="subject" formControlName="subject">
+              <option value="">Selecione...</option>
+              <option value="pedido">Sobre meu pedido</option>
+              <option value="tamanho">Tabela de tamanhos</option>
+              <option value="parceria">Parceria / Revenda</option>
+              <option value="outro">Outro</option>
+            </select>
+            @if (isInvalid('subject')) {
+              <span class="form-error">{{ errorFor('subject') }}</span>
+            }
+          </div>
+
+          <div class="form-group" [class.error]="isInvalid('message')">
+            <label for="message">Mensagem</label>
+            <textarea id="message" formControlName="message" rows="5"
+              placeholder="Descreva sua dúvida ou solicitação..."></textarea>
+            @if (isInvalid('message')) {
+              <span class="form-error">{{ errorFor('message') }}</span>
+            }
+          </div>
+
+          <button type="submit" class="form-submit" [disabled]="loading()">
+            @if (loading()) {
+              <span class="spinner"></span> Enviando...
+            } @else {
+              Enviar Mensagem ✉️
+            }
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+</section>

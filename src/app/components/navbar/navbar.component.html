@@ -1,0 +1,32 @@
+<header class="navbar" [class.scrolled]="scrolled()">
+  <div class="navbar__inner">
+    <a class="navbar__logo" routerLink="/">
+      <span class="navbar__logo-text">DRY<strong>STORM</strong></span>
+    </a>
+
+    <div class="navbar__banner">
+      ⚡ FRETE GRÁTIS nas compras acima de <strong>R$249,90</strong>
+    </div>
+
+    <!-- Desktop nav -->
+    <nav class="navbar__links">
+      <a routerLink="/" fragment="masculino" (click)="closeMenu()">Masculino</a>
+      <a routerLink="/" fragment="feminino"  (click)="closeMenu()">Feminino</a>
+      <a routerLink="/" fragment="contato"   (click)="closeMenu()">Contato</a>
+    </nav>
+
+    <!-- Hamburguer mobile -->
+    <button class="navbar__hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu com animação slideDown -->
+  @if (menuOpen()) {
+    <nav class="navbar__mobile" [@slideDown]>
+      <a routerLink="/" fragment="masculino" (click)="closeMenu()">Masculino</a>
+      <a routerLink="/" fragment="feminino"  (click)="closeMenu()">Feminino</a>
+      <a routerLink="/" fragment="contato"   (click)="closeMenu()">Contato</a>
+    </nav>
+  }
+</header>

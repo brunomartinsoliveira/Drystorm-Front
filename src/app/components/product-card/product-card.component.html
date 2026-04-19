@@ -1,0 +1,32 @@
+<article
+  class="product-card"
+  [@cardHover]="hoverState()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()">
+
+  <!-- Badge opcional -->
+  @if (product.badge) {
+    <span class="product-card__badge">{{ product.badge }}</span>
+  }
+
+  <div class="product-card__img-wrapper" [class.loaded]="imageLoaded()">
+    <!-- ✅ loading="lazy" — imagens abaixo do fold carregam sob demanda -->
+    <img
+      [src]="product.image"
+      [alt]="product.name"
+      loading="lazy"
+      (load)="onImageLoad()"
+      class="product-card__img"
+    />
+    <div class="product-card__skeleton" [class.hidden]="imageLoaded()"></div>
+  </div>
+
+  <div class="product-card__info">
+    <h3 class="product-card__name">{{ product.name }}</h3>
+    <!-- ✅ Pipe customizado para R$ brasileiro -->
+    <p class="product-card__price">{{ product.price | currencyBr }}</p>
+    <button class="product-card__btn" type="button">
+      Comprar agora
+    </button>
+  </div>
+</article>

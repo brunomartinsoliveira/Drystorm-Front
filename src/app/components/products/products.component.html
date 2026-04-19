@@ -1,0 +1,46 @@
+<section class="products" id="catalogo">
+  <div class="products__header" [@fadeInUp]>
+    <h2 class="products__title">Catálogo</h2>
+    <p class="products__subtitle">Performance e estilo em cada peça</p>
+
+    <!-- ✅ Filtro reativo com signals -->
+    <div class="products__filters" role="group" aria-label="Filtro por categoria">
+      <button
+        class="filter-btn"
+        [class.active]="activeFilter() === 'all'"
+        (click)="setFilter('all')">
+        Todos
+      </button>
+      <button
+        class="filter-btn"
+        [class.active]="activeFilter() === 'masculino'"
+        (click)="setFilter('masculino')"
+        id="masculino">
+        Masculino
+      </button>
+      <button
+        class="filter-btn"
+        [class.active]="activeFilter() === 'feminino'"
+        (click)="setFilter('feminino')"
+        id="feminino">
+        Feminino
+      </button>
+    </div>
+  </div>
+
+  <!-- ✅ @for com trackBy — renderização otimizada -->
+  @for (group of filteredGroups(); track trackByGroup($index, group)) {
+    <div class="products__group" [@fadeInUp]>
+      <h3 class="products__group-title">
+        {{ group.icon }} {{ group.title }}
+      </h3>
+
+      <!-- ✅ fadeInStagger anima cards em cascata -->
+      <div class="products__grid" [@fadeInStagger]="group.products.length">
+        @for (product of group.products; track trackByProduct($index, product)) {
+          <app-product-card [product]="product" />
+        }
+      </div>
+    </div>
+  }
+</section>

@@ -1,0 +1,83 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+
+  &__eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    font-weight: 600;
+  }
+
+  &__title {
+    font-size: clamp(3rem, 9vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    color: #fff;
+    margin: 0 0 1.5rem;
+  }
+
+  &__accent {
+    color: var(--accent);
+    display: block;
+  }
+
+  &__desc {
+    font-size: 1.1rem;
+    color: #999;
+    max-width: 420px;
+    line-height: 1.7;
+    margin: 0 0 2.5rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+
+    &--primary {
+      background: var(--accent);
+      color: #f7faff;
+      &:hover { filter: brightness(1.15); transform: translateY(-2px); }
+    }
+
+    &--ghost {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ccc;
+      &:hover { border-color: var(--accent); color: var(--accent); }
+    }
+  }
+
+  &__badge {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: #ffffff;
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    background: rgba(var(--accent-rgb), 0.08);
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+}

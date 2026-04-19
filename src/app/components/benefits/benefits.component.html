@@ -1,0 +1,16 @@
+<section class="benefits">
+  <div class="benefits__header" [@fadeInUp]>
+    <h2 class="benefits__title">Por que Dryfit?</h2>
+    <p class="benefits__subtitle">Tecnologia que você sente em cada movimento</p>
+  </div>
+
+  <div class="benefits__grid" [@fadeInStagger]="benefits.length">
+    @for (benefit of benefits; track benefit.title) {
+      <div class="benefit-card">
+        <span class="benefit-card__icon">{{ benefit.icon }}</span>
+        <h3 class="benefit-card__title">{{ benefit.title }}</h3>
+        <p class="benefit-card__desc">{{ benefit.desc }}</p>
+      </div>
+    }
+  </div>
+</section>
