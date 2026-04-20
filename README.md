@@ -24,7 +24,7 @@ npm run build:gh
 
 ## ⚡ Otimizações Aplicadas
 
-<img width="1919" height="1029" alt="drystormfront1" src="https://github.com/user-attachments/assets/f49a7467-f6f8-4517-bc2a-46b4363f6403" />
+<img width="1919" height="1030" alt="DRYSTORMFRONT1" src="https://github.com/user-attachments/assets/672c49bd-9770-4b60-bff3-d25bd8a86b68" />
 <img width="1919" height="1033" alt="drystormfront2" src="https://github.com/user-attachments/assets/e050f502-4bdd-4b69-9a6b-425f47eaa0db" />
 <img width="1919" height="1027" alt="drystormfront3" src="https://github.com/user-attachments/assets/9a823f9c-fabe-4c61-ac6e-2353b6f8a178" />
 <img width="1919" height="1030" alt="drystormfront4" src="https://github.com/user-attachments/assets/ad042de1-4fbf-414f-b4bc-c74bea3104b0" />
